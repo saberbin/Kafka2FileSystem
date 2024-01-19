@@ -80,10 +80,18 @@ public class DatetimeTool {
         return this.calendar.get(Calendar.SECOND);
     }
 
+    public static String getCurrentDateTime(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        long timeInMillis = Calendar.getInstance().getTimeInMillis();
+        return simpleDateFormat.format(timeInMillis);
+    }
+
+
     public static void main(String[] args) throws Exception {
         DatetimeTool datetimeTool = new DatetimeTool("2023-11-21 07:05:05.11", "yyyy-MM-dd HH:mm:SS.sss");
         System.out.println(datetimeTool.getDate("yyyyMMddHHmmSSsss"));
-        DatetimeTool datetimeTool2 = new DatetimeTool("2023-11-21T07:05:05Z", "yyyy-MM-ddTHH:mm:SSZ");
-        System.out.println(datetimeTool2.getDate("yyyyMMdd"));
+        System.out.println(DatetimeTool.getCurrentDateTime());
+//        DatetimeTool datetimeTool2 = new DatetimeTool("2023-11-21T07:05:05Z", "yyyy-MM-ddTHH:mm:SSZ");
+//        System.out.println(datetimeTool2.getDate("yyyyMMdd"));
     }
 }
